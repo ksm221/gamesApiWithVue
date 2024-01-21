@@ -10,7 +10,6 @@ import UsersAdd from './components/UsersAdd.vue'
 
 </script>
 
-<!-- App.vue -->
 <template>
   <div id="app">
     <div class="container">
