@@ -1,0 +1,373 @@
+openapi: 3.0.2
+info:
+    title: games-api
+    version: 1.0.0
+paths:
+    /games:
+        get:
+            tags:
+                - games
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+                            examples:
+                                List of Games:
+                                    value: |-
+                                        [
+
+                                        "LOL"
+                                        "CS:GO"
+                                            
+                                        ]
+                    description: |+
+                        Returns a list of games
+
+            summary: Get a list of games
+            description: |
+                Returns a list of all games in API
+        post:
+            requestBody:
+                description: ' a new game to be created '
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/error'
+                        examples:
+                            errormessage:
+                                value:
+                                    error: game not added
+                required: true
+            tags:
+                - new-game
+            responses:
+                '201':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/new-game'
+                            examples:
+                                name and price:
+                                    value:
+                                        name: Tetris
+                                        price: 33.06
+                    description: Creates new game
+                '400':
+                    description: one or all params missing
+            summary: Creates a new game
+    '/games/{id}':
+        get:
+            requestBody: {}
+            tags:
+                - details
+            parameters:
+                -
+                    examples:
+                        id of game:
+                            value: '66'
+                    name: id
+                    description: id of the game
+                    schema:
+                        type: array
+                        items:
+                            type: string
+                    in: path
+                    required: true
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+                            examples:
+                                list of games in array:
+                                    value:
+                                        -
+                                            id: 1
+                                            name: LOL
+                                            price: 29.99
+                                        -
+                                            id: 2
+                                            name: 'CS:GO'
+                                            price: 29.99
+                                        -
+                                            id: 3
+                                            name: Valorant
+                                            price: 29.99
+                                        -
+                                            id: 4
+                                            name: AOE2
+                                            price: 29.99
+                                        -
+                                            id: 5
+                                            name: OOT
+                                            price: 29.99
+                    description: full details of given game by id
+                '400':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/error'
+                            examples:
+                                Game /w+ was not found:
+                                    value:
+                                        error: Game \w+ was not found in game array.
+                    description: Game was not found in list of array
+            summary: Get full details of a game
+            description: |
+                returns full details of a given id game
+        delete:
+            requestBody:
+                description: |
+                    deletes a game in list
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/delete-game'
+            tags:
+                - delete-game
+            parameters:
+                -
+                    examples:
+                        game id:
+                            value: '66'
+                    name: id
+                    description: id of the game
+                    schema:
+                        type: string
+                    in: path
+                    required: true
+            responses:
+                '204':
+                    description: No Content
+                '404':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/delete-game'
+                            examples:
+                                deletes game id 4:
+                                    value:
+                                        id: '4'
+                    description: Not Found
+            summary: Deletes a game in list
+            description: deletes a game by id
+    /users:
+        get:
+            tags:
+                - users
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+                            examples:
+                                List of Users:
+                                    value:
+                                        - asd
+                                        - asd1
+                    description: |
+                        returns a list of users
+            summary: gets a list of users
+            description: |
+                returns a list of all users in api
+        post:
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/error'
+                        examples:
+                            errormessage:
+                                value:
+                                    error: user not added
+                required: true
+            tags:
+                - new-user
+            responses:
+                '201':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/new-user'
+                            examples:
+                                'username, email and userPassword':
+                                    value:
+                                        username: asd
+                                        userEmail: asd@asd.ee
+                                        userPassword: asd
+                    description: creates a new user
+            summary: creates a new user
+    '/users/{id}':
+        get:
+            tags:
+                - details
+            parameters:
+                -
+                    examples:
+                        id of the user:
+                            value: '66'
+                    name: id
+                    description: |
+                        id of the user
+                    schema:
+                        type: array
+                        items:
+                            type: string
+                    in: path
+                    required: true
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+                            examples:
+                                list of users in array:
+                                    value:
+                                        -
+                                            id: 1
+                                            username: asd
+                                            email: asd@asd.ee
+                                            userPassword: asd
+                                        -
+                                            id: 2
+                                            username: asd1
+                                            email: asd1@asd.ee
+                                            userPassword: asd1
+                                        -
+                                            id: 3
+                                            username: asd2
+                                            email: asd2@asd.ee
+                                            userPassword: asd2
+                                        -
+                                            id: 4
+                                            username: asd3
+                                            email: asd3@asd.ee
+                                            userPassword: asd3
+                                        -
+                                            id: 5
+                                            username: asd4
+                                            email: asd4@asd.ee
+                                            userPassword: asd4
+                    description: full details of the user by id
+                '400':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/error'
+                            examples:
+                                User/w+ was not found:
+                                    value:
+                                        error: User \w+ was not found in user array.
+                    description: |
+                        user was not found in list of array
+            summary: get full details of a user
+            description: returns full details of a specific user
+        delete:
+            parameters:
+                -
+                    examples:
+                        id of the user:
+                            value: '66'
+                    name: id
+                    description: id of the user
+                    schema:
+                        type: string
+                    in: path
+                    required: true
+            responses:
+                '204':
+                    description: |
+                        No content
+                '404':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/delete-user'
+                            examples:
+                                deletes user id 3:
+                                    value:
+                                        id: '4'
+                    description: Not Found
+components:
+    schemas:
+        error:
+            title: Root Type for error
+            description: error message
+            type: object
+            properties:
+                error:
+                    type: string
+            example:
+                error: Error message.
+        new-game:
+            title: Root Type for new-game
+            description: ''
+            required:
+                - price
+                - name
+            type: object
+            properties:
+                name:
+                    type: string
+                price:
+                    format: float
+                    type: number
+            example:
+                name: Tetris
+                price: 0.99
+        delete-game:
+            title: Root Type for delete-game
+            description: delete a game
+            required:
+                - id
+            type: object
+            properties:
+                id:
+                    type: string
+            example:
+                id: 1
+        new-user:
+            description: ''
+            required:
+                - username
+                - userEmail
+                - userPassword
+            type: object
+            properties:
+                username:
+                    description: ''
+                    type: string
+                userPassword:
+                    description: ''
+                    type: string
+                userEmail:
+                    description: ''
+                    type: string
+            example:
+                username: asd
+                email: asd@asd.ee
+                userPassword: asd
+        delete-user:
+            description: ''
+            required:
+                - id
+            type: object
+            properties:
+                id:
+                    description: ''
+                    type: string
+            example:
+                id: '1'
