@@ -64,7 +64,6 @@
           const userId = this.$route.params.userId;
           await axios.put(`http://localhost:8080/users/${userId}`, this.editedUser);
           this.$router.push('/users');
-          // Consider removing window.location.reload() unless necessary
           window.location.reload();
         } catch (error) {
           console.error('Error updating user:', error);

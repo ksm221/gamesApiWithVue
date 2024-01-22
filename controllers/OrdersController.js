@@ -1,19 +1,16 @@
 const {db} = require("../db")
 const Order = db.orders
 
-//gets a list of all the orders
 exports.getAll = async (req,res) => {
     const orders = await Order.findAll({attributes:["orderId", "paymentReceived", "orderReceived", "userId", "gamesId"]})
     res.send(orders)
 }
 
-//get a specific Order by its orderId
 exports.getByorderId = async (req, res) => {
     const orders = await Order.findByPk(req.params.orderId)
     res.send(orders)
 }
 
-//create a new Order
 exports.createNew = async (req, res) => {
     let Order
     try {
@@ -35,7 +32,6 @@ exports.createNew = async (req, res) => {
         console.log(Order)
 }
 
-//delete an existing Order by orderId
 exports.deleteByorderId = async (req, res) => {
     let result
     try {

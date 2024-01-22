@@ -24,7 +24,6 @@
   </div>
 </template>
 
-<!-- ... rest of the component ... -->
 
 
 <script>

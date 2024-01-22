@@ -1,15 +1,3 @@
-<script setup>
-import GamesList from './components/GamesList.vue'
-import GamesEdit from './components/GamesEdit.vue'
-import GamesDelete from './components/GamesDelete.vue'
-import GamesAdd from './components/GamesAdd.vue'
-import UsersList from './components/UsersList.vue'
-import UsersEdit from './components/UsersEdit.vue'
-import UsersDelete from './components/UsersDelete.vue'
-import UsersAdd from './components/UsersAdd.vue'
-
-</script>
-
 <template>
   <div id="app">
     <div class="container">

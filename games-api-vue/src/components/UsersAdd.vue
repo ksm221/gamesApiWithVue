@@ -41,7 +41,6 @@
         try {
           await axios.post('http://localhost:8080/users', this.newUser);
           this.$router.push('/users');
-          // Consider removing window.location.reload() unless necessary
           window.location.reload();
         } catch (error) {
           console.error('Error adding user:', error);

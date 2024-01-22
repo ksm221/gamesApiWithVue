@@ -1,32 +1,42 @@
 const gamesController = require("../controllers/GamesController");
 const ordersController = require("../controllers/OrdersController");
-const usersController = require("../controllers/usersController");
+const usersController = require("../controllers/UsersController");
+const profilesController = require("../controllers/ProfilesController");
 
 module.exports = (app) => {
     app.route("/games")
-        .get(gamesController.getAll)         //get ALL games
-        .post(gamesController.createNew)     //make ONE NEW game
+        .get(gamesController.getAll)
+        .post(gamesController.createNew)
 
     app.route("/games/:id")
-        .get(gamesController.getById)        //get ONE game by ID
-        .put(gamesController.updateById)     //UPDATE a game by ID
-        .delete(gamesController.deleteById)  //DELETE one game by ID
+        .get(gamesController.getById)
+        .put(gamesController.updateById)
+        .delete(gamesController.deleteById)
 
     app.route("/orders")
-        .get(ordersController.getAll)   //get ALL orders
-        .post(ordersController.createNew) // make ONE NEW influencer
+        .get(ordersController.getAll)
+        .post(ordersController.createNew)
         
     app.route("/orders/:orderId")
-        .get(ordersController.getByorderId)  //get ONE influencer by ID
-        .put(ordersController.updateByorderId) //UPDATE a game by ID
-        .delete(ordersController.deleteByorderId) //DELETE one influencer by ID
+        .get(ordersController.getByorderId)
+        .put(ordersController.updateByorderId)
+        .delete(ordersController.deleteByorderId)
 
     app.route("/users")
-        .get(usersController.getAll)   //get ALL orders
-        .post(usersController.createNew) // make ONE NEW influencer
+        .get(usersController.getAll)
+        .post(usersController.createNew)
         
     app.route("/users/:userId")
-        .get(usersController.getByuserId)  //get ONE influencer by ID
-        .put(usersController.updateByuserId) //UPDATE a game by ID
-        .delete(usersController.deleteByuserId) //DELETE one influencer by ID
+        .get(usersController.getByuserId)
+        .put(usersController.updateByuserId)
+        .delete(usersController.deleteByuserId)
+
+    app.route("/profiles")
+        .get(profilesController.getAll)
+        .post(profilesController.createNew)
+        
+    app.route("/profiles/:profilesId")
+        .get(profilesController.getByprofilesId)
+        .put(profilesController.updateByprofilesId)
+        .delete(profilesController.deleteByprofilesId)
  }
