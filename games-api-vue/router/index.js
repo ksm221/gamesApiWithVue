@@ -7,6 +7,7 @@ import UsersList from '../src/components/UsersList.vue';
 import UsersAdd from '../src/components/UsersAdd.vue';
 import UsersEdit from '../src/components/UsersEdit.vue';
 import UsersDelete from '../src/components/UsersDelete.vue';
+import OrdersList from '../src/components/OrdersList.vue';
 
 const routes = [
   {
@@ -27,6 +28,13 @@ const routes = [
       { path: 'add', component: UsersAdd, name: 'users-add' },
       { path: ':userId/edit', component: UsersEdit, name: 'users-edit' },
       { path: ':userId/delete', component: UsersDelete, name: 'users-delete' },
+    ],
+  },
+  {
+    path: '/orders',
+    component: OrdersList,
+    children: [
+      { path: '', component: OrdersList, name: 'orders-list' },
     ],
   },
 ];

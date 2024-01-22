@@ -1,4 +1,3 @@
-<!-- GamesList.vue -->
 <template>
   <div>
     <h1 class="title">Games List</h1>
