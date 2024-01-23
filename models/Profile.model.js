@@ -5,17 +5,13 @@ module.exports = (sequelize, Sequelize) => {
           primaryKey: true,
           autoIncrement: true
       },
-      profilePicture: {
-          type: Sequelize.BLOB,
-          allowNull: false
-      },
       description: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: true
       },
       vipLevel: {
           type: Sequelize.INTEGER,
-          allowNull: false
+          allowNull: true   
       },
       userId: {
           type: Sequelize.INTEGER,

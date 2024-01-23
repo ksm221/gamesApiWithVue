@@ -1,10 +1,11 @@
+const Sequelize = require('sequelize');
 const { db } = require("../db");
 const Profile = db.profiles;
 
 exports.getAll = async (req, res) => {
   try {
     const profiles = await Profile.findAll({
-      attributes: ["profileId", "profilePicture", "description", "vipLevel", "profileId"]
+      attributes: ["profileId", "description", "vipLevel", "userId"]
     });
     res.send(profiles);
   } catch (error) {
@@ -15,6 +16,8 @@ exports.getAll = async (req, res) => {
 
 exports.getByprofileId = async (req, res) => {
   try {
+    console.log('Requested profileId:', req.params.profileId);
+
     const profile = await Profile.findByPk(req.params.profileId);
     if (profile) {
       res.send(profile);

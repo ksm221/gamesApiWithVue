@@ -35,7 +35,7 @@ module.exports = (app) => {
         .get(profilesController.getAll)
         .post(profilesController.createNew)
         
-    app.route("/profiles/:profilesId")
+    app.route("/profiles/:profileId")
         .get(profilesController.getByprofileId)
         .put(profilesController.updateByprofileId)
         .delete(profilesController.deleteByprofileId)
