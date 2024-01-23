@@ -1,25 +1,30 @@
 <template>
     <div>
       <h1 class="title">Orders List</h1>
+      <router-link :to="{ name: 'orders-add' }">Add Order</router-link>
       <ul class="orders-list">
-        <li class="order-item" v-for="order in orders" :key="order.orderId">
-          <h2 v-if="order.orderId">Order ID: {{ order.orderId }}</h2>
-          <div v-if="order.paymentReceived !== null" class="order-detail">
-            <span>Payment Received: {{ order.paymentReceived }}</span>
-          </div>
-          <div v-if="order.orderReceived !== null" class="order-detail">
-            <span>Order Received: {{ order.orderReceived }}</span>
-          </div>
-          <div v-if="order.userId !== null" class="order-detail">
-            <span>User ID: {{ order.userId }}</span>
-          </div>
-          <div v-if="order.gamesId !== null" class="order-detail">
-            <span>Games ID: {{ order.gamesId }}</span>
-          </div>
+        <li v-for="order in orders" :key="order.orderId" class="order-item">
+          <router-link :to="{ name: 'orders-edit', params: { orderId: order.orderId } }">
+            <h2 v-if="order.orderId">Order ID: {{ order.orderId }}</h2>
+            <div v-if="order.paymentReceived !== null" class="order-detail">
+              <span>Payment Received: {{ order.paymentReceived }}</span>
+            </div>
+            <div v-if="order.orderReceived !== null" class="order-detail">
+              <span>Order Received: {{ order.orderReceived }}</span>
+            </div>
+            <div v-if="order.userId !== null" class="order-detail">
+              <span>User ID: {{ order.userId }}</span>
+            </div>
+            <div v-if="order.gamesId !== null" class="order-detail">
+              <span>Games ID: {{ order.gamesId }}</span>
+            </div>
+          </router-link>
+          <router-link :to="{ name: 'orders-edit', params: { orderId: order.orderId } }">Edit</router-link>
+          <router-link :to="{ name: 'orders-delete', params: { orderId: order.orderId } }">Delete</router-link>
         </li>
       </ul>
     </div>
-</template>
+  </template>
   
   <script>
   import axios from 'axios';

@@ -1,3 +1,4 @@
+const Sequelize = require('sequelize');
 const {db} = require("../db")
 const Order = db.orders
 
@@ -12,24 +13,24 @@ exports.getByorderId = async (req, res) => {
 }
 
 exports.createNew = async (req, res) => {
-    let Order
+    let newOrder;
     try {
-        Order = await Order.create(req.body)
+        newOrder = await Order.create(req.body);
     } catch (error) {
-        if (error instanceof Sequelize.ValidationIdationError) {
-            console.log(error)
-            res.status(400).send({"error":error.errors.map((item) => item.message)})
+        if (error instanceof Sequelize.ValidationError) {
+            console.log(error);
+            res.status(400).send({ "error": error.errors.map((item) => item.message) });
         } else {
-            console.log("ordersCreate: ", error)
-            res.status(500).send({"error":"Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up"})
+            console.log("ordersCreate: ", error);
+            res.status(500).send({ "error": "Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up" });
         }
-        return
+        return;
     }
     res
         .status(201)
-        .location(`${getBaseUrl(req)}/orders/${Order.orderId}`)
-        .json(Order)
-        console.log(Order)
+        .location(`${getBaseUrl(req)}/orders/${newOrder.orderId}`)
+        .json(newOrder);
+    console.log(newOrder);
 }
 
 exports.deleteByorderId = async (req, res) => {
@@ -46,26 +47,25 @@ exports.deleteByorderId = async (req, res) => {
     res.status(204).send()
 }
 
-//
 exports.updateByorderId = async (req, res) => {
-    let changedOrder
-    delete req.body.orderId
+    let changedOrder;
+    delete req.body.orderId;
     try {
-        changedOrder = await Order.update(req.body,{where: {orderId: req.params.orderId}})
+        changedOrder = await Order.update(req.body, { where: { orderId: req.params.orderId } });
     } catch (error) {        
-        console.log("ordersUpdate: ", error)
-        res.status(500).send({"error":"Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up"})
-        return
+        console.log("ordersUpdate: ", error);
+        res.status(500).send({ "error": "Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up" });
+        return;
     }
-    if (changedOrder === 0 || changedOrder === undefined) {
-        res.status(404).send({error:"Order not found"})
-        return
+    if (changedOrder[0] === 0 || changedOrder === undefined) {
+        res.status(404).send({ error: "Order not found" });
+        return;
     }
-    const Order = await Order.findByPk(req.params.orderId)
+    const updatedOrder = await Order.findByPk(req.params.orderId);
     res.status(200)
-    .location(`${getBaseUrl(req)}/orders/${Order.orderId}`)
-    .json(Order)
-}
+        .location(`${getBaseUrl(req)}/orders/${updatedOrder.orderId}`)
+        .json(updatedOrder);
+};
 
 getBaseUrl = (request) => {
     return (
