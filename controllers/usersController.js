@@ -49,25 +49,25 @@ exports.createNew = async (req, res) => {
 //     .status(204).send()
 // }
 
-// exports.updateByuserId = async (req, res) => {
-//     let result
-//     delete req.body.userId
-//     try {
-//         result = await User.update(req.body,{where: {userId: req.params.userId}})
-//     } catch (error) {
-//         console.log("usersUpdate: ", error)
-//         res.status(500).send({error:"Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up"})
-//         return
-//     }
-//     if (result === 0) {
-//         res.status(404).send({error:"User not found"})
-//         return
-//     }
-//     const user = await User.findByPk(req.params.userId)
-//     res.status(200)
-//     .location(`${getBaseUrl(req)}/users/${user.userId}`)
-//     .json(user)
-// }
+exports.updateByuserId = async (req, res) => {
+    let result
+    delete req.body.userId
+    try {
+        result = await User.update(req.body,{where: {userId: req.params.userId}})
+    } catch (error) {
+        console.log("usersUpdate: ", error)
+        res.status(500).send({error:"Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up"})
+        return
+    }
+    if (result === 0) {
+        res.status(404).send({error:"User not found"})
+        return
+    }
+    const user = await User.findByPk(req.params.userId)
+    res.status(200)
+    .location(`${getBaseUrl(req)}/users/${user.userId}`)
+    .json(user)
+}
 
 getBaseUrl = (request) => {
     return (

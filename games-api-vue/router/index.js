@@ -5,7 +5,7 @@ import GamesList from '../src/components/GamesList.vue';
 // import GamesDelete from '../src/components/GamesDelete.vue';
 // import UsersList from '../src/components/UsersList.vue';
 import UsersAdd from '../src/components/UsersAdd.vue';
-// import UsersEdit from '../src/components/UsersEdit.vue';
+import UsersEdit from '../src/components/UsersEdit.vue';
 // import UsersDelete from '../src/components/UsersDelete.vue';
 import OrdersList from '../src/components/OrdersList.vue';
 import OrdersAdd from '../src/components/OrdersAdd.vue';
@@ -23,7 +23,7 @@ const routes = [
     children: [
       { path: '', component: GamesList, name: 'games-list' },
   //     { path: 'add', component: GamesAdd, name: 'games-add' },
-  //     { path: ':id/edit', component: GamesEdit, name: 'games-edit' },
+      { path: ':id/edit', component: GamesEdit, name: 'games-edit' },
   //     { path: ':id/delete', component: GamesDelete, name: 'games-delete' },
     ],
   },
@@ -33,7 +33,7 @@ const routes = [
     children: [
   //     { path: '', component: UsersList, name: 'users-list' },
       { path: 'add', component: UsersAdd, name: 'users-add' },
-  //     { path: ':userId/edit', component: UsersEdit, name: 'users-edit' },
+      { path: ':userId/edit', component: UsersEdit, name: 'users-edit' },
   //     { path: ':userId/delete', component: UsersDelete, name: 'users-delete' },
     ],
   },
