@@ -1,8 +1,8 @@
-<!-- <template>
+<template>
   <div>
     <h1 class="title">Users List</h1>
     <router-link :to="{ name: 'users-add' }">Add User</router-link>
-    <ul class="users-list">
+    <!-- <ul class="users-list">
       <router-link v-for="user in users" :key="user.userId" :to="{ name: 'users-edit', params: { userId: user.userId } }">
         <li class="user-item" :key="user.userId">
           <h2 v-if="user.userName">{{ user.userName }}</h2>
@@ -15,12 +15,12 @@
           <router-link :to="{ name: 'users-delete', params: { userId: user.userId } }">Delete</router-link>
         </li>
       </router-link>
-    </ul>
+    </ul> -->
 
   </div>
 </template>
   
-  <script>
+  <!-- <script>
   import axios from 'axios';
   
   export default {

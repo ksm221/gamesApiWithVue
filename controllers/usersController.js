@@ -1,5 +1,5 @@
-// const {db} = require("../db")
-// const User = db.users
+const {db} = require("../db")
+const User = db.users
 
 // exports.getAll = async (req,res) => {
 //     const users = await User.findAll({attributes:["userId", "userName", "userPassword", "userEmail", "user2FA", "orderId"]})
@@ -11,26 +11,26 @@
 //     res.send(users)
 // }
 
-// exports.createNew = async (req, res) => {
-//     let user
-//     try {
-//         user = await User.create(req.body)
-//     } catch (error) {
-//         if (error instanceof db.Sequelize.ValidationError) {
-//             console.log(error)
-//             res.status(400).send({"error":error.errors.map((item)=> item.message)})
-//         } else {
-//             console.log("usersCreate: ", error)
-//             res.status(500).send({"error":"Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up"})
-//         }
-//         return
-//     }
-//     res
-//     .status(201)
-//     .location(`${getBaseUrl(req)}/users/${user.userId}`)
-//     .json(user);
-//     console.log(user)
-// }
+exports.createNew = async (req, res) => {
+    let user
+    try {
+        user = await User.create(req.body)
+    } catch (error) {
+        if (error instanceof db.Sequelize.ValidationError) {
+            console.log(error)
+            res.status(400).send({"error":error.errors.map((item)=> item.message)})
+        } else {
+            console.log("usersCreate: ", error)
+            res.status(500).send({"error":"Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up"})
+        }
+        return
+    }
+    res
+    .status(201)
+    .location(`${getBaseUrl(req)}/users/${user.userId}`)
+    .json(user);
+    console.log(user)
+}
 
 // exports.deleteByuserId = async (req, res) => {
 //     let result
@@ -69,9 +69,9 @@
 //     .json(user)
 // }
 
-// getBaseUrl = (request) => {
-//     return (
-//         (request.connection && request.connection.encryption ? "https" : "http") +
-//         `://${request.headers.host}`
-//     )
-// }
+getBaseUrl = (request) => {
+    return (
+        (request.connection && request.connection.encryption ? "https" : "http") +
+        `://${request.headers.host}`
+    )
+}
