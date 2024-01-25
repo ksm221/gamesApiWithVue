@@ -20,7 +20,7 @@
             </div>
           </router-link>
           <router-link :to="{ name: 'orders-edit', params: { orderId: order.orderId } }">Edit</router-link>
-          <!-- <router-link :to="{ name: 'orders-delete', params: { orderId: order.orderId } }">Delete</router-link> -->
+          <router-link :to="{ name: 'orders-delete', params: { orderId: order.orderId } }">Delete</router-link>
         </li>
       </ul>
     </div>

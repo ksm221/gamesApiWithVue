@@ -10,7 +10,7 @@ import UsersDelete from '../src/components/UsersDelete.vue';
 import OrdersList from '../src/components/OrdersList.vue';
 // import OrdersAdd from '../src/components/OrdersAdd.vue';
 import OrdersEdit from '../src/components/OrdersEdit.vue';
-// import OrdersDelete from '../src/components/OrdersDelete.vue';
+import OrdersDelete from '../src/components/OrdersDelete.vue';
 import ProfilesList from '../src/components/ProfilesList.vue';
 import ProfilesAdd from '../src/components/ProfilesAdd.vue';
 import ProfilesEdit from '../src/components/ProfilesEdit.vue';
@@ -44,7 +44,7 @@ const routes = [
       { path: '', component: OrdersList, name: 'orders-list' },
   //     { path: 'add', component: OrdersAdd, name: 'orders-add' },
       { path: ':orderId/edit', component: OrdersEdit, name: 'orders-edit' },
-      // { path: ':orderId/delete', component: OrdersDelete, name: 'orders-delete' },
+      { path: ':orderId/delete', component: OrdersDelete, name: 'orders-delete' },
     ],
   },
 

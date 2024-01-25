@@ -33,19 +33,19 @@ exports.getByorderId = async (req, res) => {
 //     console.log(newOrder);
 // }
 
-// exports.deleteByorderId = async (req, res) => {
-//     let result
-//     try {
-//         result = await Order.destroy({where: {orderId: req.params.orderId}})
-//     } catch (error) {        
-//         console.log("ordersDelete: ", error)
-//         res.status(500).send({"error":"Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up"})
-//         return
-//     }
-//     if (result === 0 || result === undefined) {
-//         res.status(404).send({error:"Order not found"})}
-//     res.status(204).send()
-// }
+exports.deleteByorderId = async (req, res) => {
+    let result
+    try {
+        result = await Order.destroy({where: {orderId: req.params.orderId}})
+    } catch (error) {        
+        console.log("ordersDelete: ", error)
+        res.status(500).send({"error":"Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up"})
+        return
+    }
+    if (result === 0 || result === undefined) {
+        res.status(404).send({error:"Order not found"})}
+    res.status(204).send()
+}
 
 exports.updateByorderId = async (req, res) => {
     let changedOrder;
