@@ -11,7 +11,7 @@ import OrdersList from '../src/components/OrdersList.vue';
 import OrdersAdd from '../src/components/OrdersAdd.vue';
 import OrdersEdit from '../src/components/OrdersEdit.vue';
 import OrdersDelete from '../src/components/OrdersDelete.vue';
-import ProfilesList from '../src/components/ProfilesList.vue';
+// import ProfilesList from '../src/components/ProfilesList.vue';
 // import ProfilesAdd from '../src/components/ProfilesAdd.vue';
 // import ProfilesEdit from '../src/components/ProfilesEdit.vue';
 // import ProfilesDelete from '../src/components/ProfilesDelete.vue';
@@ -47,17 +47,18 @@ const routes = [
       { path: ':orderId/delete', component: OrdersDelete, name: 'orders-delete' },
     ],
   },
-  {
-    path: '/profiles',
-    component: { template: '<router-view />' },
-    children: [
-      { path: '', component: ProfilesList, name: 'profiles-list' },
+];
+  // {
+    // path: '/profiles',
+    // component: { template: '<router-view />' },
+    // children: [
+    //   { path: '', component: ProfilesList, name: 'profiles-list' },
       // { path: 'add', component: ProfilesAdd, name: 'profiles-add' },
       // { path: ':profileId/edit', component: ProfilesEdit, name: 'profiles-edit' },
       // { path: ':profileId/delete', component: ProfilesDelete, name: 'profiles-delete' },
-    ],
-  },
-];
+//     ],
+//   },
+// ];
 
 const router = createRouter({
   history: createWebHistory(),
