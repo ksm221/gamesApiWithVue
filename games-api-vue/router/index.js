@@ -47,18 +47,18 @@ const routes = [
       { path: ':orderId/delete', component: OrdersDelete, name: 'orders-delete' },
     ],
   },
-];
-  // {
-    // path: '/profiles',
-    // component: { template: '<router-view />' },
-    // children: [
-    //   { path: '', component: ProfilesList, name: 'profiles-list' },
+
+  {
+    path: '/profiles',
+    component: { template: '<router-view />' },
+    children: [
+      { path: '', component: ProfilesList, name: 'profiles-list' },
       // { path: 'add', component: ProfilesAdd, name: 'profiles-add' },
       // { path: ':profileId/edit', component: ProfilesEdit, name: 'profiles-edit' },
       // { path: ':profileId/delete', component: ProfilesDelete, name: 'profiles-delete' },
-//     ],
-//   },
-// ];
+    ],
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(),

@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div>
       <h1 class="title">Profiles List</h1>
       <router-link :to="{ name: 'profiles-add' }">Add Profile</router-link>
@@ -78,4 +78,4 @@
     text-decoration: underline;
   }
   </style>
-   -->
+  
