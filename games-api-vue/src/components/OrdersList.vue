@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div>
       <h1 class="title">Orders List</h1>
       <router-link :to="{ name: 'orders-add' }">Add Order</router-link>
@@ -84,4 +84,4 @@
     text-decoration: underline;
   }
   </style>
-  
+   -->
