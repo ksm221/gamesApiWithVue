@@ -4,7 +4,7 @@
       <!-- <router-link :to="{ name: 'profiles-add' }">Add Profile</router-link> -->
       <ul class="profiles-list">
         <li v-for="profile in profiles" :key="profile.profileId" class="profile-item">
-          <!-- <router-link :to="{ name: 'profiles-edit', params: { profileId: profile.profileId } }"> -->
+          <router-link :to="{ name: 'profiles-edit', params: { profileId: profile.profileId } }">
             <h2 v-if="profile.profileId">Profile ID: {{ profile.profileId }}</h2>
             <div v-if="profile.description !== null" class="profile-detail">
               <span>Description: {{ profile.description }}</span>
@@ -12,9 +12,9 @@
             <div v-if="profile.vipLevel !== null" class="profile-detail">
               <span>VIP Level: {{ profile.vipLevel }}</span>
             </div>
-          <!-- </router-link>
+          </router-link>
           <router-link :to="{ name: 'profiles-edit', params: { profileId: profile.profileId } }">Edit</router-link>
-          <router-link :to="{ name: 'profiles-delete', params: { profileId: profile.profileId } }">Delete</router-link> -->
+          <!-- <router-link :to="{ name: 'profiles-delete', params: { profileId: profile.profileId } }">Delete</router-link> -->
         </li>
       </ul>
     </div>

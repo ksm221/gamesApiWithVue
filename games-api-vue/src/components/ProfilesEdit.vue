@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div>
       <h1 class="title">Edit Profile</h1>
   
@@ -113,4 +113,4 @@
     border-radius: 5px;
   }
   </style>
-   -->
+  

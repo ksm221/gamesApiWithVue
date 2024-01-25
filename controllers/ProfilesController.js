@@ -62,23 +62,23 @@ exports.getByprofileId = async (req, res) => {
 //   }
 // };
 
-// exports.updateByprofileId = async (req, res) => {
-//   try {
-//     delete req.body.profileId;
-//     const changedProfile = await Profile.update(req.body, { where: { profileId: req.params.profileId } });
-//     if (changedProfile === 0 || changedProfile === undefined) {
-//       res.status(404).send({ error: "Profile not found" });
-//     } else {
-//       const updatedProfile = await Profile.findByPk(req.params.profileId);
-//       res.status(200)
-//         .location(`${getBaseUrl(req)}/profiles/${updatedProfile.profileId}`)
-//         .json(updatedProfile);
-//     }
-//   } catch (error) {
-//     console.log("profilesUpdate: ", error);
-//     res.status(500).send({ "error": "Something went wrong. Our team is looking into it." });
-//   }
-// };
+exports.updateByprofileId = async (req, res) => {
+  try {
+    delete req.body.profileId;
+    const changedProfile = await Profile.update(req.body, { where: { profileId: req.params.profileId } });
+    if (changedProfile === 0 || changedProfile === undefined) {
+      res.status(404).send({ error: "Profile not found" });
+    } else {
+      const updatedProfile = await Profile.findByPk(req.params.profileId);
+      res.status(200)
+        .location(`${getBaseUrl(req)}/profiles/${updatedProfile.profileId}`)
+        .json(updatedProfile);
+    }
+  } catch (error) {
+    console.log("profilesUpdate: ", error);
+    res.status(500).send({ "error": "Something went wrong. Our team is looking into it." });
+  }
+};
 
 const getBaseUrl = (request) => {
   return (
