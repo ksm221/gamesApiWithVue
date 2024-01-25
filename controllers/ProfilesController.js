@@ -48,19 +48,19 @@ exports.createNew = async (req, res) => {
   }
 };
 
-// exports.deleteByprofileId = async (req, res) => {
-//   try {
-//     const result = await Profile.destroy({ where: { profileId: req.params.profileId } });
-//     if (result === 0 || result === undefined) {
-//       res.status(404).send({ error: "Profile not found" });
-//     } else {
-//       res.status(204).send();
-//     }
-//   } catch (error) {
-//     console.log("profilesDelete: ", error);
-//     res.status(500).send({ "error": "Something went wrong. Our team is looking into it." });
-//   }
-// };
+exports.deleteByprofileId = async (req, res) => {
+  try {
+    const result = await Profile.destroy({ where: { profileId: req.params.profileId } });
+    if (result === 0 || result === undefined) {
+      res.status(404).send({ error: "Profile not found" });
+    } else {
+      res.status(204).send();
+    }
+  } catch (error) {
+    console.log("profilesDelete: ", error);
+    res.status(500).send({ "error": "Something went wrong. Our team is looking into it." });
+  }
+};
 
 exports.updateByprofileId = async (req, res) => {
   try {

@@ -14,7 +14,7 @@
             </div>
           </router-link>
           <router-link :to="{ name: 'profiles-edit', params: { profileId: profile.profileId } }">Edit</router-link>
-          <!-- <router-link :to="{ name: 'profiles-delete', params: { profileId: profile.profileId } }">Delete</router-link> -->
+          <router-link :to="{ name: 'profiles-delete', params: { profileId: profile.profileId } }">Delete</router-link>
         </li>
       </ul>
     </div>
