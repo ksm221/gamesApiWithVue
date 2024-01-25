@@ -1,15 +1,15 @@
 const {db} = require("../db")
 const User = db.users
 
-// exports.getAll = async (req,res) => {
-//     const users = await User.findAll({attributes:["userId", "userName", "userPassword", "userEmail", "user2FA", "orderId"]})
-//     res.send(users)
-// }
+exports.getAll = async (req,res) => {
+    const users = await User.findAll({attributes:["userId", "userName", "userPassword", "userEmail", "user2FA", "orderId"]})
+    res.send(users)
+}
 
-// exports.getByuserId = async (req, res) => {
-//     const users = await User.findByPk(req.params.userId)
-//     res.send(users)
-// }
+exports.getByuserId = async (req, res) => {
+    const users = await User.findByPk(req.params.userId)
+    res.send(users)
+}
 
 exports.createNew = async (req, res) => {
     let user
