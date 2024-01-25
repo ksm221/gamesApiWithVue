@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-// import GamesList from '../src/components/GamesList.vue';
+import GamesList from '../src/components/GamesList.vue';
 // import GamesAdd from '../src/components/GamesAdd.vue';
 // import GamesEdit from '../src/components/GamesEdit.vue';
 // import GamesDelete from '../src/components/GamesDelete.vue';
@@ -17,16 +17,16 @@ import ProfilesEdit from '../src/components/ProfilesEdit.vue';
 import ProfilesDelete from '../src/components/ProfilesDelete.vue';
 
 const routes = [
-  // {
-  //   path: '/games',
-  //   component: { template: '<router-view />' },
-  //   children: [
-  //     { path: '', component: GamesList, name: 'games-list' },
+  {
+    path: '/games',
+    component: { template: '<router-view />' },
+    children: [
+      { path: '', component: GamesList, name: 'games-list' },
   //     { path: 'add', component: GamesAdd, name: 'games-add' },
   //     { path: ':id/edit', component: GamesEdit, name: 'games-edit' },
   //     { path: ':id/delete', component: GamesDelete, name: 'games-delete' },
-  //   ],
-  // },
+    ],
+  },
   {
     path: '/users',
     component: { template: '<router-view />' },

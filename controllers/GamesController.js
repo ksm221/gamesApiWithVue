@@ -1,15 +1,15 @@
-// const {db} = require("../db")
-// const Game = db.games
+const {db} = require("../db")
+const Game = db.games
 
-// exports.getAll = async (req,res) => {
-//     const games = await Game.findAll({attributes:["id", "name", "price", "os", "genre", "matureContent"]})
-//     res.send(games)
-// }
+exports.getAll = async (req,res) => {
+    const games = await Game.findAll({attributes:["id", "name", "price", "os", "genre", "matureContent"]})
+    res.send(games)
+}
 
-// exports.getById = async (req, res) => {
-//     const games = await Game.findByPk(req.params.id)
-//     res.send(games)
-// }
+exports.getById = async (req, res) => {
+    const games = await Game.findByPk(req.params.id)
+    res.send(games)
+}
 
 // exports.createNew = async (req, res) => {
 //     let game
@@ -69,9 +69,9 @@
 //     .json(game)
 // }
 
-// getBaseUrl = (request) => {
-//     return (
-//         (request.connection && request.connection.encryption ? "https" : "http") +
-//         `://${request.headers.host}`
-//     )
-// }
+getBaseUrl = (request) => {
+    return (
+        (request.connection && request.connection.encryption ? "https" : "http") +
+        `://${request.headers.host}`
+    )
+}
