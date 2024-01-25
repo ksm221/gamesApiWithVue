@@ -1,7 +1,7 @@
 <template>
     <div>
       <h1 class="title">Orders List</h1>
-      <!-- <router-link :to="{ name: 'orders-add' }">Add Order</router-link> -->
+      <router-link :to="{ name: 'orders-add' }">Add Order</router-link>
       <ul class="orders-list">
         <li v-for="order in orders" :key="order.orderId" class="order-item">
           <router-link :to="{ name: 'orders-edit', params: { orderId: order.orderId } }">

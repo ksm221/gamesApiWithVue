@@ -12,26 +12,26 @@ exports.getByorderId = async (req, res) => {
     res.send(orders)
 }
 
-// exports.createNew = async (req, res) => {
-//     let newOrder;
-//     try {
-//         newOrder = await Order.create(req.body);
-//     } catch (error) {
-//         if (error instanceof Sequelize.ValidationError) {
-//             console.log(error);
-//             res.status(400).send({ "error": error.errors.map((item) => item.message) });
-//         } else {
-//             console.log("ordersCreate: ", error);
-//             res.status(500).send({ "error": "Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up" });
-//         }
-//         return;
-//     }
-//     res
-//         .status(201)
-//         .location(`${getBaseUrl(req)}/orders/${newOrder.orderId}`)
-//         .json(newOrder);
-//     console.log(newOrder);
-// }
+exports.createNew = async (req, res) => {
+    let newOrder;
+    try {
+        newOrder = await Order.create(req.body);
+    } catch (error) {
+        if (error instanceof Sequelize.ValidationError) {
+            console.log(error);
+            res.status(400).send({ "error": error.errors.map((item) => item.message) });
+        } else {
+            console.log("ordersCreate: ", error);
+            res.status(500).send({ "error": "Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up" });
+        }
+        return;
+    }
+    res
+        .status(201)
+        .location(`${getBaseUrl(req)}/orders/${newOrder.orderId}`)
+        .json(newOrder);
+    console.log(newOrder);
+}
 
 exports.deleteByorderId = async (req, res) => {
     let result
