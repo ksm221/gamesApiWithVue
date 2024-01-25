@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <h1 class="title">Users List</h1>
     <router-link :to="{ name: 'users-add' }">Add User</router-link>
@@ -16,7 +16,7 @@
         </li>
       </router-link>
     </ul>
-    
+
   </div>
 </template>
   
@@ -73,4 +73,4 @@
     display: inline-block;
   }
   </style>
-  
+   -->
