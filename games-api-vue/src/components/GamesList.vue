@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="title">Games List</h1>
-    <!-- <router-link :to="{ name: 'games-add' }">Add Game</router-link> -->
+    <router-link :to="{ name: 'games-add' }">Add Game</router-link>
     <ul class="games-list">
       <router-link
         v-for="game in games"
@@ -15,8 +15,8 @@
               {{ key }}: {{ value }}
             </span>
           </div>
-          <!-- <router-link :to="{ name: 'games-edit', params: { id: game.id } }">Edit</router-link>
-          <router-link :to="{ name: 'games-delete', params: { id: game.id } }">Delete</router-link> -->
+          <router-link :to="{ name: 'games-edit', params: { id: game.id } }">Edit</router-link>
+          <router-link :to="{ name: 'games-delete', params: { id: game.id } }">Delete</router-link>
         </li>
       </router-link>
     </ul>

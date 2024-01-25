@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div>
     <h1 class="title">Delete Game</h1>
 
@@ -90,4 +90,4 @@ export default {
 .delete-button:hover {
   background-color: #e60000;
 }
-</style> -->
+</style>
