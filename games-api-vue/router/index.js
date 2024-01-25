@@ -27,16 +27,16 @@ const routes = [
   //     { path: ':id/delete', component: GamesDelete, name: 'games-delete' },
     ],
   },
-  {
-    path: '/users',
-    component: { template: '<router-view />' },
-    children: [
-      { path: '', component: UsersList, name: 'users-list' },
-      { path: 'add', component: UsersAdd, name: 'users-add' },
-      { path: ':userId/edit', component: UsersEdit, name: 'users-edit' },
-      { path: ':userId/delete', component: UsersDelete, name: 'users-delete' },
-    ],
-  },
+  // {
+  //   path: '/users',
+  //   component: { template: '<router-view />' },
+  //   children: [
+  //     { path: '', component: UsersList, name: 'users-list' },
+  //     { path: 'add', component: UsersAdd, name: 'users-add' },
+  //     { path: ':userId/edit', component: UsersEdit, name: 'users-edit' },
+  //     { path: ':userId/delete', component: UsersDelete, name: 'users-delete' },
+  //   ],
+  // },
   {
     path: '/orders',
     component: { template: '<router-view />' },
