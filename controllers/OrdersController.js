@@ -1,16 +1,16 @@
-// const Sequelize = require('sequelize');
-// const {db} = require("../db")
-// const Order = db.orders
+const Sequelize = require('sequelize');
+const {db} = require("../db")
+const Order = db.orders
 
-// exports.getAll = async (req,res) => {
-//     const orders = await Order.findAll({attributes:["orderId", "paymentReceived", "orderReceived", "userId", "gamesId"]})
-//     res.send(orders)
-// }
+exports.getAll = async (req,res) => {
+    const orders = await Order.findAll({attributes:["orderId", "paymentReceived", "orderReceived", "userId", "gamesId"]})
+    res.send(orders)
+}
 
-// exports.getByorderId = async (req, res) => {
-//     const orders = await Order.findByPk(req.params.orderId)
-//     res.send(orders)
-// }
+exports.getByorderId = async (req, res) => {
+    const orders = await Order.findByPk(req.params.orderId)
+    res.send(orders)
+}
 
 // exports.createNew = async (req, res) => {
 //     let newOrder;
@@ -67,9 +67,9 @@
 //         .json(updatedOrder);
 // };
 
-// getBaseUrl = (request) => {
-//     return (
-//         (request.connection && request.connection.encryption ? "https" : "http") +
-//         `://${request.headers.host}`
-//     )
-// }
+getBaseUrl = (request) => {
+    return (
+        (request.connection && request.connection.encryption ? "https" : "http") +
+        `://${request.headers.host}`
+    )
+}
