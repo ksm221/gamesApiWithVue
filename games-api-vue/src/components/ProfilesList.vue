@@ -1,7 +1,7 @@
 <template>
     <div>
       <h1 class="title">Profiles List</h1>
-      <!-- <router-link :to="{ name: 'profiles-add' }">Add Profile</router-link> -->
+      <router-link :to="{ name: 'profiles-add' }">Add Profile</router-link>
       <ul class="profiles-list">
         <li v-for="profile in profiles" :key="profile.profileId" class="profile-item">
           <router-link :to="{ name: 'profiles-edit', params: { profileId: profile.profileId } }">

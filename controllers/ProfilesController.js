@@ -30,23 +30,23 @@ exports.getByprofileId = async (req, res) => {
   }
 };
 
-// exports.createNew = async (req, res) => {
-//   try {
-//     const profile = await Profile.create(req.body);
-//     res.status(201)
-//       .location(`${getBaseUrl(req)}/profiles/${profile.profileId}`)
-//       .json(profile);
-//     console.log(profile);
-//   } catch (error) {
-//     if (error instanceof Sequelize.ValidationError) {
-//       console.log(error);
-//       res.status(400).send({ "error": error.errors.map((item) => item.message) });
-//     } else {
-//       console.log("profilesCreate: ", error);
-//       res.status(500).send({ "error": "Something went wrong. Our team is looking into it." });
-//     }
-//   }
-// };
+exports.createNew = async (req, res) => {
+  try {
+    const profile = await Profile.create(req.body);
+    res.status(201)
+      .location(`${getBaseUrl(req)}/profiles/${profile.profileId}`)
+      .json(profile);
+    console.log(profile);
+  } catch (error) {
+    if (error instanceof Sequelize.ValidationError) {
+      console.log(error);
+      res.status(400).send({ "error": error.errors.map((item) => item.message) });
+    } else {
+      console.log("profilesCreate: ", error);
+      res.status(500).send({ "error": "Something went wrong. Our team is looking into it." });
+    }
+  }
+};
 
 // exports.deleteByprofileId = async (req, res) => {
 //   try {

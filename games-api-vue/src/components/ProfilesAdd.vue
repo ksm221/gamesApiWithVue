@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div>
       <h1 class="title">Add Profile</h1>
   
@@ -70,4 +70,4 @@
     border-radius: 5px;
   }
   </style>
-   -->
+  
