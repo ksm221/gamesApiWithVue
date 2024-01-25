@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <h1 class="title">Games List</h1>
     <router-link :to="{ name: 'games-add' }">Add Game</router-link>
@@ -82,4 +82,4 @@ export default {
 .edit-link:hover {
   text-decoration: underline;
 }
-</style>
+</style> -->
