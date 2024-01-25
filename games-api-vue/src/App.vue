@@ -2,11 +2,17 @@
   <div id="app">
     <div class="container">
       <header>
-        <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+        <img alt="Vue logo" class="logo" src="./assets/logo.png" width="125" height="125" />
       </header>
       <main>
         <div class="content-wrapper">
           <router-view></router-view>
+        </div>
+        <div>     
+          <a href="http://localhost:5173/games">Games</a>
+          <a href="http://localhost:5173/users">Users</a>
+          <a href="http://localhost:5173/orders">Orders</a>
+          <a href="http://localhost:5173/profiles">Profiles</a>
         </div>
       </main>
     </div>
