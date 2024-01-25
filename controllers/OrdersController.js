@@ -47,25 +47,25 @@ exports.getByorderId = async (req, res) => {
 //     res.status(204).send()
 // }
 
-// exports.updateByorderId = async (req, res) => {
-//     let changedOrder;
-//     delete req.body.orderId;
-//     try {
-//         changedOrder = await Order.update(req.body, { where: { orderId: req.params.orderId } });
-//     } catch (error) {        
-//         console.log("ordersUpdate: ", error);
-//         res.status(500).send({ "error": "Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up" });
-//         return;
-//     }
-//     if (changedOrder[0] === 0 || changedOrder === undefined) {
-//         res.status(404).send({ error: "Order not found" });
-//         return;
-//     }
-//     const updatedOrder = await Order.findByPk(req.params.orderId);
-//     res.status(200)
-//         .location(`${getBaseUrl(req)}/orders/${updatedOrder.orderId}`)
-//         .json(updatedOrder);
-// };
+exports.updateByorderId = async (req, res) => {
+    let changedOrder;
+    delete req.body.orderId;
+    try {
+        changedOrder = await Order.update(req.body, { where: { orderId: req.params.orderId } });
+    } catch (error) {        
+        console.log("ordersUpdate: ", error);
+        res.status(500).send({ "error": "Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up" });
+        return;
+    }
+    if (changedOrder[0] === 0 || changedOrder === undefined) {
+        res.status(404).send({ error: "Order not found" });
+        return;
+    }
+    const updatedOrder = await Order.findByPk(req.params.orderId);
+    res.status(200)
+        .location(`${getBaseUrl(req)}/orders/${updatedOrder.orderId}`)
+        .json(updatedOrder);
+};
 
 getBaseUrl = (request) => {
     return (

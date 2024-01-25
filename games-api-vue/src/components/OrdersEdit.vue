@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div>
       <h1 class="title">Edit Order</h1>
   
@@ -58,7 +58,7 @@
       const response = await axios.get(`http://localhost:8080/orders/${orderId}`);
       console.log('Response data:', response.data);
 
-      // Check if response.data is an object and has the necessary properties
+
       if (
         response.data &&
         typeof response.data === 'object' &&
@@ -124,4 +124,4 @@
     border-radius: 5px;
   }
   </style>
-   -->
+  
