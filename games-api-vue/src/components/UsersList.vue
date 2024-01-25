@@ -12,7 +12,7 @@
             </span>
           </div>
           <router-link :to="{ name: 'users-edit', params: { userId: user.userId } }">Edit</router-link>
-          <!-- <router-link :to="{ name: 'users-delete', params: { userId: user.userId } }">Delete</router-link> -->
+          <router-link :to="{ name: 'users-delete', params: { userId: user.userId } }">Delete</router-link>
         </li>
       </router-link>
     </ul>

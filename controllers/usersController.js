@@ -32,22 +32,22 @@ exports.createNew = async (req, res) => {
     console.log(user)
 }
 
-// exports.deleteByuserId = async (req, res) => {
-//     let result
-//     try {
-//         result = await User.destroy({where: {userId: req.params.userId}})
-//     } catch (error) {
-//         console.log("usersDelete: ", error)
-//         res.status(500).send({error:"Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up"})
-//         return
-//     }
-//     if (result === 0) {
-//         res.status(404).send({error:"User not found"})
-//         return
-//     }
-//     res
-//     .status(204).send()
-// }
+exports.deleteByuserId = async (req, res) => {
+    let result
+    try {
+        result = await User.destroy({where: {userId: req.params.userId}})
+    } catch (error) {
+        console.log("usersDelete: ", error)
+        res.status(500).send({error:"Something has gone wrong in our monkey pit, lead orangutan has been deployed to fix it up"})
+        return
+    }
+    if (result === 0) {
+        res.status(404).send({error:"User not found"})
+        return
+    }
+    res
+    .status(204).send()
+}
 
 exports.updateByuserId = async (req, res) => {
     let result

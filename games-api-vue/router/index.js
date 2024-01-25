@@ -3,10 +3,10 @@ import GamesList from '../src/components/GamesList.vue';
 // import GamesAdd from '../src/components/GamesAdd.vue';
 // import GamesEdit from '../src/components/GamesEdit.vue';
 // import GamesDelete from '../src/components/GamesDelete.vue';
-// import UsersList from '../src/components/UsersList.vue';
+import UsersList from '../src/components/UsersList.vue';
 import UsersAdd from '../src/components/UsersAdd.vue';
 import UsersEdit from '../src/components/UsersEdit.vue';
-// import UsersDelete from '../src/components/UsersDelete.vue';
+import UsersDelete from '../src/components/UsersDelete.vue';
 import OrdersList from '../src/components/OrdersList.vue';
 import OrdersAdd from '../src/components/OrdersAdd.vue';
 import OrdersEdit from '../src/components/OrdersEdit.vue';
@@ -31,10 +31,10 @@ const routes = [
     path: '/users',
     component: { template: '<router-view />' },
     children: [
-  //     { path: '', component: UsersList, name: 'users-list' },
+      { path: '', component: UsersList, name: 'users-list' },
       { path: 'add', component: UsersAdd, name: 'users-add' },
       { path: ':userId/edit', component: UsersEdit, name: 'users-edit' },
-  //     { path: ':userId/delete', component: UsersDelete, name: 'users-delete' },
+      { path: ':userId/delete', component: UsersDelete, name: 'users-delete' },
     ],
   },
   {
